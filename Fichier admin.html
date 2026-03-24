@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administration - Mon super site</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Mon super site</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="about.html">À propos</a></li>
+                <li><a href="admin.html">Admin</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Panneau d'administration</h2>
+            <p>Cette zone est réservée aux administrateurs.</p>
+            <form id="adminForm">
+                <label for="messageAdmin">Message personnalisé :</label>
+                <input type="text" id="messageAdmin" name="messageAdmin" placeholder="Saisissez un message">
+                <button type="submit">Enregistrer</button>
+            </form>
+            <div id="adminFeedback"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 - Mon premier site</p>
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+        document.getElementById('adminForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const message = document.getElementById('messageAdmin').value;
+            const feedback = document.getElementById('adminFeedback');
+            if (message.trim() === '') {
+                feedback.textContent = 'Veuillez saisir un message.';
+                feedback.style.color = 'red';
+            } else {
+                feedback.textContent = `Message enregistré : "${message}"`;
+                feedback.style.color = 'green';
+            }
+        });
+    </script>
+</body>
+</html>
